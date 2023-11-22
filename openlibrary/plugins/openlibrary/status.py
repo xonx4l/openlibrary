@@ -21,11 +21,13 @@ class status(delegate.page):
     def get_deployed_prs(self):
         """If we're on testing and the file exists, return staged PRs"""
         import os
+
         fp = '/openlibrary/_dev-merged.txt'
         if os.path.exists(fp):
             with open(fp) as r:
                 return r.read()
         return ''
+
 
 @public
 def get_git_revision_short_hash():
